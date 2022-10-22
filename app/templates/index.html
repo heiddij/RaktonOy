@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+{% if posts %}
+    {% for post in posts%}
+    <p>{{ post.page }}</p>
+        <p>{{ post.photo }}</p>
+    {% endfor %}
+{% else %}
+    <p>Ei vielä posteja</p>
+{% endif %}
+</body>
+</html>
