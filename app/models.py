@@ -1,11 +1,23 @@
+from xmlrpc.client import Boolean
 from app import db
+from flask_security import UserMixin, RoleMixin
 
+
+# Create table for many-to-many relationship for pages and images
 pages_images = db.Table('pages_images',
                         db.Column('page_id', db.Integer,
                         db.ForeignKey('page.id')),
                         db.Column('image_id', db.Integer,
                         db.ForeignKey('image.id'))
 )
+
+roles_users = db.Table('roles_users',
+                        db.Column('user_id', db.Integer,
+                        db.ForeignKey('user.id')),
+                        db.Column('role_id', db.Integer,
+                        db.ForeignKey('role.id'))
+)
+
 
 class Image(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -18,6 +30,7 @@ class Image(db.Model):
     def __repr__(self):
         return f"Kuva: {self.name}"
 
+
 class Page(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
@@ -25,3 +38,16 @@ class Page(db.Model):
 
     def __repr__(self):
         return f"{self.name}"
+
+
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(100), unique=True)
+    password = db.Column(db.String(255))
+    active = db.Column(db.Boolean)
+    roles = db.relationship('Role', secondary=roles_users, backref=db.backref('users'), lazy='dynamic')
+
+
+class Role(db.Model, RoleMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True)

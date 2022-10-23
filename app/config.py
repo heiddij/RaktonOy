@@ -9,3 +9,5 @@ class Config:
     SECRET_KEY='dev'
     FLASK_ADMIN_SWATCH = 'cerulean'
     UPLOAD_FOLDER = IMG_FOLDER
+    SECURITY_PASSWORD_SALT = 'j07741n v44n' # kato nää vielä mitä näihin pitää laittaa
+    SECURITY_PASSWORD_HASH = 'sha512_crypt'
