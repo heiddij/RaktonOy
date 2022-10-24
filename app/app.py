@@ -53,11 +53,11 @@ def del_image(mapper, connection, target):
             pass
 
         # Delete thumbnail
-        try:
-            os.remove(op.join(file_path,
-                              form.thumbgen_filename(target.path)))
-        except OSError:
-            pass
+        # try:
+        #     os.remove(op.join(file_path,
+        #                       form.thumbgen_filename(target.path)))
+        # except OSError:
+        #     pass
 
 
 # Restrict access only for admin role
@@ -89,8 +89,6 @@ class ImageView(AdminMixin, sqla.ModelView):
     # Alternative way to contribute field is to override it completely.
     # In this case, Flask-Admin won't attempt to merge various parameters for the field.
 
-    # Restrict access only for admin role
-
     form_extra_fields = {
         'path': form.ImageUploadField('Image',
                                       base_path=file_path)
@@ -110,7 +108,7 @@ class PageView(AdminMixin, ModelView):
 
 
 # Register the admin sites
-admin = Admin(app, name='Rakton Oy', template_mode='bootstrap3', index_view=HomeAdminView(name='Home'))
+admin = Admin(app, base_template='admin/base.html', name='Rakton Oy', template_mode='bootstrap4', index_view=HomeAdminView(name='Home'))
 admin.add_view(ImageView(Image, db.session))
 admin.add_view(PageView(Page, db.session))
 

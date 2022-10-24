@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template
+from flask import render_template, redirect, url_for, session
 from models import Page
 from sqlalchemy import select
 import os
@@ -12,3 +12,8 @@ def index():
     file_path = os.path.join(app.config['UPLOAD_FOLDER'])
 
     return render_template('index.html', pages=pages, file_path=file_path)
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
