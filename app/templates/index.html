@@ -1,17 +1,47 @@
-<!DOCTYPE html>
-<html>
-<body>
+
 {% extends 'base.html' %}
 
-{% block header %}
-<h1>My First Heading</h1>
-{% endblock %}
-
 {% block content %}
-{% for page in pages %}
-    <p>{{ page.name }}</p>
-    {% for image in page.images %}
-        <img src="{{ file_path }}/{{ image.path }}" alt="Etusivun kuva"> <!-- image.path -->
-    {% endfor %}
-{% endfor %}
+<div class="row main">
+    <div class="col-lg-12">
+        {% for page in pages %}
+            {% for image in page.images %}
+            <img src="{{ file_path }}/{{ image.path }}" class="img-responsive" style="width:100%" alt="Etusivun kuva"> 
+            {% endfor %}
+        {% endfor %}
+    
+        <div id="top" class="row etusivu">
+            <div class="col-lg-5 etusivu">
+                <article class="etusivu1"> 
+                    <h1>Rakton Oy<br></h1>
+                        RAKton Oy on asuntojen ja kiinteistöjen kuntotarkastuksiin ja korjausrakentamiseen erikoistunut yritys.
+        
+                        Asiakas saa kauttamme tarkastukset, raportoinnin sekä mahdolliset jatkotoimenpiteet nopeasti ja laadukkaasti.
+                        
+                        Päätavoitteemme on tuottaa palvelujamme asiakkaalle kokonaisvaltaisesti ja kustannustehokkaasti ilman välikäsiä.
+                        
+                        Henkilökuntamme koostuu pitkän kokemuksen omaavista rakennusalan ammattilaisista ja päätoimialueemme on Pirkanmaa.
+                </article>
+            </div>
+            <div class="col-lg-5 etusivu">
+                <article class="etusivu2">
+                    <h1>Asiantuntija-<br>palvelumme<br></h1>
+                    <ul>
+                        <li>Asuntokaupan kuntotarkastukset</li>
+                        <li>Lakisääteiset VSS-tarkastukset ja huollot</li>
+                        <li>Vesivahinko- ja hometarkastukset</li>
+                        <li>Asbesti- ja sisäilmanäytteiden otto ja analysointi</li>
+                        <li>Korjaussuunnittelu ja -rakentaminen</li>
+                        <li>Valvontatyöt</li>
+                        <li>Taloyhtiöiden kuntoarviot (PTS)</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
+    
+
+
+

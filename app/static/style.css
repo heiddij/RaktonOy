@@ -1,5 +1,18 @@
 
+body {
+    background-color: #F5F5F5;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 5%;
+}
+
 .navbar, .dropdown-menu {
+    font-size: 16px;
     background-color: #1C3879;
 }
 
@@ -7,17 +20,13 @@
     color: white;
 }
 
-.dropdown-toggle {
-    color: white;
-}
-
-.nav-link.active {
+.nav-link.active, .dropdown-toggle, .show {
     color: white !important;
 }
 
 .nav-link:hover {
     color: white;
-    border-bottom: solid white;
+    background-color: #607eaa7d;
 }
 
 .navbar-collapse {
@@ -31,3 +40,100 @@
     padding-right: 20px;
     padding-left: 20px;
 }
+
+article {
+    border-radius: 10px;
+    
+    padding: 10% 20%;
+}
+
+.etusivu1 {
+    background-color: #DFE9F1;
+    height: 100%;
+}
+
+.etusivu2 {
+    background-color: #607EAA;
+    color: white;
+    height: 100%;
+    /*padding: 10% 20% 10% 10%;*/
+}
+
+#top { 
+    position: relative;
+    justify-content: center;
+    bottom: 15%;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    background-color: #1C3879;
+    padding: 3% 0%;
+}
+
+
+@media screen and (max-width: 1400px) {
+
+    article {
+        padding: 10% 10%;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+    article {
+        padding: 5% 5%;
+    }
+    
+}
+
+@media screen and (max-width: 990px) {
+
+    article {
+        width: 70%;
+        margin-left: 15%;
+    }
+
+    .col-lg-5 {
+        margin-bottom: 10%;
+    }
+
+    .navbar-collapse {
+        padding: 0;
+    }
+
+}
+
+
+
+@media screen and (max-width: 580px) {
+
+    #top {
+        bottom: 0%;
+    }
+
+    article {
+        margin: 0%;
+        width: 100%;
+    }
+
+    .col-lg-5 {
+        margin-top: 5%;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+
+    .navbar-collapse {
+        text-align: start;
+    }
+
+}
+
