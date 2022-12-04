@@ -13,6 +13,7 @@ from markupsafe import Markup
 from flask_admin.contrib import sqla, rediscli
 from flask_migrate import Migrate
 from flask_security import SQLAlchemyUserDatastore, Security, current_user
+from flask_mail import Mail, Message
 
 
 # Using SQLAlchemy extension for database
@@ -21,6 +22,7 @@ db = SQLAlchemy()
 # Create the app
 app = Flask(__name__)
 
+# Conf file
 app.config.from_object(Config)
 
 # Init the database
@@ -32,6 +34,8 @@ app.app_context().push()
 # For db migrations
 # When making model modifications use flask db migrate - flask db upgrade
 migrate = Migrate(app, db)
+
+# mail = Mail(app)
 
 # Create directory for file fields to use
 file_path = op.join(op.dirname(__file__), 'static', 'pics')
@@ -95,6 +99,7 @@ class ImageView(AdminMixin, sqla.ModelView):
     }
 
 
+# Custom view for admin to create page
 class PageView(AdminMixin, ModelView):
     form_choices = {
         'name': [
@@ -111,6 +116,7 @@ class PageView(AdminMixin, ModelView):
 admin = Admin(app, base_template='admin/base.html', name='Rakton Oy', template_mode='bootstrap4', index_view=HomeAdminView(name='Home'))
 admin.add_view(ImageView(Image, db.session))
 admin.add_view(PageView(Page, db.session))
+admin.add_view(ModelView(ContactForm, db.session))
 
 
 # Flask-Security

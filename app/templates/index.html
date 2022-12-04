@@ -1,15 +1,11 @@
-
 {% extends 'base.html' %}
 
 {% block content %}
 <div class="row main">
     <div class="col-lg-12">
-        {% for page in pages %}
-            {% for image in page.images %}
-            <img src="{{ file_path }}/{{ image.path }}" class="img-responsive" style="width:100%" alt="Etusivun kuva"> 
-            {% endfor %}
+        {% for image in page.images %}
+        <img src="{{ file_path }}/{{ image.path }}" class="img-responsive" style="width:100%" alt="Etusivun kuva"> 
         {% endfor %}
-    
         <div id="top" class="row etusivu">
             <div class="col-lg-5 etusivu">
                 <article class="etusivu1"> 
@@ -42,6 +38,4 @@
 </div>
 {% endblock %}
     
-
-
 

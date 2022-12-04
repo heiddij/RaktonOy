@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row asuntokauppa1">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <section>
+            <br>
+            <h1>Asuntokaupan kuntotarkastus ammattitaidolla Tampereella</h1>
+            Asuntokaupan kuntotarkastuksen tarkoituksena on tuottaa puolueetonta tietoa molemmille asuntokaupan osapuolille kaupan kohteesta. 
+            Tarkastuksella pyritään selvittämään kaupan kohteen rakennustekninen kunto ja mahdolliset huolto- tai korjaustarpeet, 
+            sekä näin välttämään kaupanteon jälkeiset ikävät jälkiselvittelyt. <br><br>
+            Tarkastajamme on suorittanut Asuntokaupan Kuntotarkastajan (AKK) koulutuksen sekä läpäissyt hyväksytysti valtakunnallisen FISE-kokeen.<br><br>
+            Kuntotarkastus tehdään valtakunnallisen suoritusohjeen (KH 90-00394, LVI 01-10414) mukaisesti.<br><br>
+        </section>
+    </div>
+    <div class="col-lg-1"></div>
+</div>
+
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        {% for image in page.images %}
+        <img src="{{ file_path }}/{{ image.path }}" class="img-responsive" style="width:100%" alt="Etusivun kuva"> 
+        {% endfor %}
+        <div id="top" class="row etusivu">
+            <div class="col-lg-5">
+                <article class="asuntokauppa">
+                    <h2>Kauttamme saat myös<br></h2>
+                    <ul>
+                        <li>Tarvittavat jatkotutkimukset</li>
+                        <li>Korjaussuunnittelun</li>
+                        <li>Remontin toteutuksen</li>
+                        <li>Valvontatyöt</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-1"></div>
+</div>
+
+{% endblock %}

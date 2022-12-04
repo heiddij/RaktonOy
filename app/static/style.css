@@ -11,6 +11,11 @@ h1 {
     padding-bottom: 5%;
 }
 
+h2 {
+    text-align: center;
+    padding-bottom: 10%;
+}
+
 .navbar, .dropdown-menu {
     font-size: 16px;
     background-color: #1C3879;
@@ -43,7 +48,6 @@ h1 {
 
 article {
     border-radius: 10px;
-    
     padding: 10% 20%;
 }
 
@@ -52,11 +56,16 @@ article {
     height: 100%;
 }
 
-.etusivu2 {
+.etusivu2, .asuntokauppa {
     background-color: #607EAA;
     color: white;
     height: 100%;
     /*padding: 10% 20% 10% 10%;*/
+}
+
+.asuntokauppa {
+    padding-top: 15% !important;
+    padding-bottom: 15% !important;
 }
 
 #top { 
@@ -71,6 +80,23 @@ footer {
     background-color: #1C3879;
     padding: 3% 0%;
 }
+
+.contact {
+    justify-content: center;
+    padding: 16px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+form {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 
 @media screen and (max-width: 1400px) {
@@ -136,4 +162,3 @@ footer {
     }
 
 }
-
