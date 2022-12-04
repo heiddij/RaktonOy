@@ -1,7 +1,33 @@
 {% extends 'admin/master.html' %}
+{% block head %}
+    <script>
+        var canvas, ctx, sprite;
+        const NUMBER_OF_BITMAPS = 1; // the total number of images to load
+        var loadCounter;
 
+        function begin() {
+            canvas = document.getElementById("canvas");
+            ctx = canvas.getContext("2d");
+            loadCounter = 0;
+            sprite = new Image();
+            sprite.onload = draw; // call draw() after image is fully loaded
+            sprite.src = "/static/builder.jpg"; // start loading bitmap
+        }
+
+        // this won't be executed until sprite is loaded
+        function draw() {
+            if (++loadCounter < NUMBER_OF_BITMAPS) return;
+            
+            ctx.scale(2/3, 2/3);
+            ctx.drawImage(sprite, 500, 100);
+        }
+    </script>
+{% endblock %}
 {% block body %}
-<br><br>
-<h1 style="color: #607EAA; text-align: center; font-family: 'Poppins', sans-serif; font-weight: bold">
-    Welcome to the Administration Pages</h1>
+    <body onload="begin()">
+    <br><br>
+    <h1 style="color: #607EAA; text-align: center; font-family: 'Poppins', sans-serif; font-weight: bold">
+        Welcome to the Administration Pages!</h1>
+    <canvas id="canvas" width="1024" height="768"></canvas>
+    </body>
 {% endblock %}
