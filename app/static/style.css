@@ -63,20 +63,24 @@ article {
     /*padding: 10% 20% 10% 10%;*/
 }
 
-.img-hover-zoom {
-    overflow: hidden; /* Hide the overflowing of child elements */
+/*
+ .img-hover-zoom {
+    overflow: hidden;  Hide the overflowing of child elements 
   }
   
-  /* Transition property for smooth transformation of images */
+  /* Transition property for smooth transformation of images 
   .img-hover-zoom img {
     transform-origin: 50% 65%;
     transition: transform 5s, filter 3s ease-in-out;
   }
   
-  /* Transforming the image when container gets hovered */
+   Transforming the image when container gets hovered 
+  
   .img-hover-zoom:hover img {
     transform: scale(3);
-  }
+  } 
+  */
+  
 
 .asuntokauppa {
     padding-top: 15% !important;

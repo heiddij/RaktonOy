@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
-
+{% block head%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script>
+    $(function() {
+        $('.img-zoom').css("overflow", "hidden");
+        $('.img-zoom').find('img').css({"transform-origin":"50% 65%", "transition":"transform 5s, filter 3s ease-in-out"});
+        $('.img-zoom').find('img').css("transform", "scale(2)");
+    });
+</script
+{% endblock %}
 {% block content %}
 <div class="row main">
     <div class="col-lg-12">
         {% for image in page.images %}
-        <div class="img-hover-zoom">
-            <img src="{{ file_path }}/{{ image.path }}" class="img-responsive" style="width:100%" alt="Etusivun kuva"> 
+        <div class="img-zoom">
+            <img src="{{ file_path }}/{{ image.path }}" id="idImg" class="img-responsive" style="width:100%" alt="Etusivun kuva"> 
         </div>
         {% endfor %}
         <div id="top" class="row etusivu">
