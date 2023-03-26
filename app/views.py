@@ -28,6 +28,12 @@ def vaestonsuoja():
     file_path = os.path.join(app.config['UPLOAD_FOLDER'])
     return render_template('vaestonsuoja.html', page=page, file_path=file_path)
 
+@app.route('/remontit')
+def remontit():
+    page = Page.query.filter_by(name='Huoneisto- ja toimistoremontit').first() 
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'])
+    return render_template('remontit.html', page=page, file_path=file_path)
+
 
 @app.route('/contact', methods=('GET', 'POST'))
 def post_contact():

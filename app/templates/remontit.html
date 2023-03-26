@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row asuntokauppa1">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <section>
+            <br>
+            <h1>Huoneisto- ja toimistoremontit</h1>
+            <p>Teemme huoneistoremontteja sekä toimitilojen muutoksia Pirkanmaan alueella.<br><br>
+
+            Meiltä saat pienetkin remonttipalvelut nopeasti, luotettavasti ja ammattitaidolla tehtynä. Tuomme materiaalit 
+            tullessamme ja viemme roskat lähtiessämme, sekä annamme vielä työllemme tyytyväisyystakuun: 
+            Ei laskutusta, mikäli asiakas on tyytymätön työn jälkeen.<br><br>
+
+            Niin pientä työtä ei olekaan, ettemmekö siitäkin suoriutuisi.</p><br><br>
+        </section>
+    </div>
+    <div class="col-lg-1"></div>
+</div>
+
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        {% for image in page.images %}
+        <img src="{{ file_path }}/{{ image.path }}" class="img-responsive" style="width:60%;" alt="Remonttikuva"> 
+        {% endfor %}
+    </div>
+    <div class="col-lg-1"></div>
+</div>
+
+{% endblock %}
