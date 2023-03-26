@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row main"> 
+    <div class="col-lg-1 side"> <!-- SIDE --></div>
+      <div class="col-lg-10 vaestocol"> <!-- CENTER -->
+        <div class="row vaestonsuoja">
+            <div class="col-lg-6">
+                <article class="etusivu1">
+                <p>Pelastuslaki määrää väestönsuojat tarkastettavaksi vähintään 10 vuoden välein ja pitämään
+                    suojien laitteet ja varusteet kunnossa koko ajan.<br><br>
+                    
+                    10 vuoden välein tehtävässä tarkastuksessa tarkastetaan varusteiden olemassa olo, 
+                    niiden kunto ja voimassa olo päiväys. Koneiden ja laitteiden kunto ja toimivuus testataan ja suojaan 
+                    tehdään tiiviyskoe. Varusteet sekä koneiden ja laitteiden toimintakunto tulisi lisäksi tarkastaa 1 
+                    vuoden välein.<br><br>
+                    
+                    Vastuu lain noudattamisesta on kiinteistön omistajalla tai haltijalla.</p>
+                </article>
+            </div>
+            <div class="col-lg-6">
+                {% for image in page.images %}
+                    {% if image.name == "Vaestonsuoja1" %}
+                         <img src="{{ file_path }}/{{ image.path }}" class="img-responsive" style="width:100%" alt="Vaestonsuoja1"> 
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="row vaestonsuoja">
+            <div class="col-lg-6">
+                    {% for image in page.images %}
+                        {% if image.name == "Vaestonsuoja2" %}
+                            <img src="{{ file_path }}/{{ image.path }}" class="img-responsive" style="width:100%" alt="Vaestonsuoja1"> 
+                        {% endif %}
+                    {% endfor %}
+            </div>
+            <div class="col-lg-6">
+                <article class="etusivu2">
+                    <p>VSS-tarkastajamme on Kuopion Pelastusopiston kouluttama asiantuntija,
+                        joka on Pirkanmaan alueella tarkastanut ja kuntoon laittanut useita
+                        satoja väestönsuojia.<br><br>
+                        
+                        Tiivis yhteyden pito Pirkanmaan pelastusviranomaisiin sekä ammattimainen toiminta takaa asiakkaalle 
+                        lain vaatimukset täyttävän, kustannustehokkaan palvelun.<br><br>
+                        
+                        Lisätietoa: Pelastuslaki 379/2011 12§</p>
+                </article>
+            </div>
+            
+        </div>
+        <div class="row nappula">
+            <p><a href="{{ url_for('post_contact') }}"><button class="button">Ota yhteyttä!</button></a></p>
+        </div>
+      </div>
+
+    <div class="col-lg-1 side"></div> <!-- SIDE --> 
+
+</div>
+{% endblock %}

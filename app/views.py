@@ -22,6 +22,13 @@ def asuntokauppa():
     return render_template('asuntokauppa.html', page=page, file_path=file_path)
 
 
+@app.route('/vaestonsuoja')
+def vaestonsuoja():
+    page = Page.query.filter_by(name='Väestönsuojan tarkastus').first() 
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'])
+    return render_template('vaestonsuoja.html', page=page, file_path=file_path)
+
+
 @app.route('/contact', methods=('GET', 'POST'))
 def post_contact():
     form = FormContact()

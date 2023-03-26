@@ -16,6 +16,29 @@ h2 {
     padding-bottom: 10%;
 }
 
+.link {
+    color: #1C3879;
+    font-weight: bold;
+}
+
+.button {
+    border: none;
+    border-radius: 40px;
+    background-color: #DFE9F1;
+    text-align: center;
+    font-size: 15px;
+    height: 75px;
+    width: 200px;
+    font-weight: bold;
+}
+
+.nappula {
+    text-align: center;
+    align-items: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
 .navbar, .dropdown-menu {
     font-size: 16px;
     background-color: #1C3879;
@@ -85,6 +108,22 @@ article {
 .asuntokauppa {
     padding-top: 15% !important;
     padding-bottom: 15% !important;
+}
+
+.vaestocol { /* Tällä oma luokka niin ei vaikuta muihin sivuihin */
+    padding: 80px 25px 80px 25px;
+}
+
+.row .vaestonsuoja {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.vaesto {
+    flex: 50%;
+    max-width: 50%;
 }
 
 #top { 
