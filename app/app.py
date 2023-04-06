@@ -35,7 +35,9 @@ app.app_context().push()
 # When making model modifications use flask db migrate - flask db upgrade
 migrate = Migrate(app, db)
 
-# mail = Mail(app)
+# Create mail instance and initialize it
+mail = Mail(app)
+mail.init_app(app)
 
 # Create directory for file fields to use
 file_path = op.join(op.dirname(__file__), 'static', 'pics')

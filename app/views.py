@@ -1,4 +1,4 @@
-from app import app, db
+from app import app, db, mail
 from flask import Flask, render_template, redirect, url_for, request, session
 from models import Page, ContactForm
 from sqlalchemy import select
@@ -6,6 +6,7 @@ import os
 from flask_security import login_required
 from forms import FormContact
 import re
+from flask_mail import Mail, Message
 
 
 @app.route('/')
@@ -49,6 +50,13 @@ def post_contact():
         # Add to database and save
         db.session.add(contact)
         db.session.commit()
+        # Send email
+        msg = Message("Uusi yhteydenottopyyntö", sender='heidi.joutsijoki@gmail.com', recipients=['heidi20151@student.hamk.fi'])
+        msg.body = """ 
+        From: %s <%s> %s
+        %s 
+        """ % (form.name.data, form.email.data, form.phone.data, form.message.data)
+        mail.send(msg)
         #return redirect(url_for('index')) # muuta tää vielä et kiitosteksti tms
     return render_template('contact.html', form=form, thank_u=thank_u)
 
