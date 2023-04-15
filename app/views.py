@@ -1,5 +1,5 @@
 from app import app, db, mail
-from flask import Flask, render_template, redirect, url_for, request, session
+from flask import Flask, render_template, redirect, url_for, request, session, jsonify
 from models import Page, ContactForm
 from sqlalchemy import select
 import os
@@ -7,8 +7,10 @@ from flask_security import login_required
 from forms import FormContact
 import re
 from flask_mail import Mail, Message
+from chat import get_response
 
 
+# app.route default method is GET
 @app.route('/')
 def index():
     page = Page.query.filter_by(name='Etusivu').first() 
@@ -65,3 +67,13 @@ def post_contact():
 def logout():
     session.clear()
     return redirect(url_for('index'))
+
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    text = request.get_json().get("message")
+    # TODO: check if text is valid
+    response = get_response(text)
+    message = {"answer": response}
+    return jsonify(message)
+
