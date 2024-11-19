@@ -9,9 +9,6 @@ Projekti on toteutettu Python-kielellä ja Flask-sovelluskehyksellä.
 Projektin ulkoasussa on käytetty HTML5, CSS ja JavaScript.
 
 
-***Projekti on vielä kesken.***
-
-
 Näyte projektin ulkoasusta:
 
 
