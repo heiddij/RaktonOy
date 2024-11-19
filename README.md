@@ -4,7 +4,7 @@ Projektilla on yrityksen lupa julkaisuun.
 
 ## Projektin kuvaus
 Dynaamiset kotisivut yritykselle. 
-Sivustolle toteutettu myös ylläpitokäyttöliittymä, jonka kautta asiakas voi itse lisätä haluamiaan kuvia sivustolle.
+Sivustolle toteutettu ylläpitokäyttöliittymä, jonka kautta asiakas voi lisätä haluamiaan kuvia sivustolle.
 Projekti on toteutettu Python-kielellä ja Flask-sovelluskehyksellä. 
 Projektin ulkoasussa on käytetty HTML5, CSS ja JavaScript.
 
